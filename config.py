@@ -1,3 +1,4 @@
+import os
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -14,13 +15,16 @@ SHORT_TUT = "https://t.me/How_to_Download_7x/26"
 
 # Bot Configuration
 SESSION = "yato"
-TOKEN = "642712"
-API_ID = ""
-API_HASH = ""
+
+TOKEN = os.getenv("TOKEN")
+
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+
 WORKERS = 5
 
-DB_URI = "mongodb"
-DB_NAME = "yato"
+DB_URI = os.getenv("DB_URI")
+DB_NAME = os.getenv("DB_NAME", "yato")
 
 FSUBS = [[-1003016571084, True, 10]] # Force Subscription Channels [channel_id, request_enabled, timer_in_minutes]
 # Database Channel (Primary)
